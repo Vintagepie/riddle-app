@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.Leaderboard {
+  margin: 2em;
+  padding: 2em;
+  border-radius: 2em;
+}
+
+.innerContainer {
+  margin: 1em;
+  border-radius: 2em;
+  background-color: white;
+}
+
+.appContainer {
+  margin: 2em;
+  border-radius: 2em;
+  background-color: #ffa2a2;
+  padding: 0.5em;
+}
+
+.quizContainer {
+  margin: 2em;
+  border-radius: 2em;
+  background-color: #32767b;
+  padding: 0.5em;
+}
+
+.quiz {
+  margin: 2em;
+  padding: 2em;
+  border-radius: 2em;
+}
+
+h1 {
+  text-align: center;
+}
