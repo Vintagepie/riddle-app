@@ -39,3 +39,15 @@ body {
 h1 {
   text-align: center;
 }
+
+.header {
+  text-align: center;
+  background: #ffa2a2;
+  color: white;
+  padding: 1em;
+}
+.footer {
+  background: #ffa2a2;
+  text-align: center;
+  padding: 0.25em;
+}

@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import "./App.css"
 import axios from "axios"
 import Table from "react-bootstrap/lib/Table"
-import Image from "react-bootstrap/lib/Image"
 import "font-awesome/css/font-awesome.css"
 
 class App extends Component {
@@ -11,9 +10,9 @@ class App extends Component {
     rank: [],
     completionTime: [],
     points: [],
-    current: true
+    current: true,
+    oldRiddleData: []
   }
-
   componentWillMount(){
      //console.log('run');
      //request to get data
@@ -56,7 +55,20 @@ class App extends Component {
       });
       
     });
+
+    axios.get('/oldRiddles').then((res)=>{
+      return res.data;
+    }).then((previousRiddle)=>{
+      const number = previousRiddle[0].number;
+      const answer = previousRiddle[0].answer;
+      const question = previousRiddle[0].question;
+      const newLink = previousRiddle[0].link;
+      this.setState({
+        oldRiddleData: [number,answer,question,newLink]
+      });
+    });
   }
+
 
   changeTable(value) {
     if (this.state.current !== value) {
@@ -65,7 +77,7 @@ class App extends Component {
   }
 
   render() {
-    const { names, completionTime, points, rank, current } = this.state;
+    const { names, completionTime, points, rank, current, oldRiddleData } = this.state;
     const data= names.map((value,index)=>{
       return (<tr>
         <td>{index+1}</td>
@@ -103,10 +115,10 @@ class App extends Component {
         <div className="innerContainer">
         <div className="quiz">
           <div>
-            <h1>extra text here title</h1>
-            <h2>text here</h2>
-            <p>idk</p>
-            
+            <h1>Answer to the Previous Riddle</h1>
+            <h2>Riddle #{oldRiddleData[0]}</h2>
+            <h3>Question: {oldRiddleData[1]}</h3>
+            <h3>Answer: {oldRiddleData[2]}</h3>
           </div>
         </div>
         </div>
